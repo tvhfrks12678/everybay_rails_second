@@ -1,0 +1,5 @@
+{
+  "vim.useCtrlKeys": false,
+  "vim.vimrc.path": "$HOME/.vimrc",
+  "vim.useSystemClipboard": true
+}

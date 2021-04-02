@@ -16,6 +16,12 @@ RSpec.describe User, type: :model do
     )
     expect(user).to be_valid
   end
+
+  it { is_expected.to validate_presence_of :first_name }
+  it { is_expected.to validate_presence_of :last_name }
+  it { is_expected.to validate_presence_of :email }
+  it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
+  
   # 名がなければ無効な状態であること
   it "is invalid without a first name" do
     user = FactoryBot.build(:user, first_name: nil)
@@ -28,7 +34,7 @@ RSpec.describe User, type: :model do
     user.valid?
     expect(user.errors[:last_name]).to include("can't be blank")
   end
-  # メールアドレスがなければ無効な状態であること
+  #メールアドレスがなければ無効な状態であること
   it "is invalid without an email address" do
     user = FactoryBot.build(:user, email: nil)
     user.valid?

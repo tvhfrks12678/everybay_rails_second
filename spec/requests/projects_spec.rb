@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Projects", type: :request do
   # 認証済みユーザーとして
-  context "as an authenticated user"  
+  context "as an authenticated user" do 
     before do
       @user = FactoryBot.create(:user)
     end
